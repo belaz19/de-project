@@ -10,4 +10,12 @@
    This creates two files in my .ssh directory: I need to add the .pub key to my gcp project
    Open the gcp project, search for ssh keys, add ssh key
    test connection to your vm by running in terminal (use your username and your VM external IP): ssh -i ~/.ssh/vmp belaz@34.88.109.102
-5. Install anaconda, docker, docker compose, terraform
+   
+5. on you local machine configure access to your vm by running: nano .ssh/config
+   and configure ssh accordingly:
+   Host vm-project
+    HostName 34.88.109.102
+    User belaz
+    IdentityFile /home/belaz/.ssh/vmp
+
+6. Install anaconda, docker, docker compose, terraform
