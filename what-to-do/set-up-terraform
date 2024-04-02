@@ -1,0 +1,5 @@
+1. on GCP create a service account with the following permissions:
+  Viewer, Storage Admin, Storage Object Admin, BigQuery Admin, Compute Admin
+2. For this service account do the following: manage keys -> create new key -> JSON
+3. Save this key to my VM
+4. 
