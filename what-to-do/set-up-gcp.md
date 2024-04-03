@@ -19,3 +19,4 @@
     IdentityFile /home/belaz/.ssh/vmp  
 
 6. Install anaconda, docker, docker compose, terraform  
+7. Clone this entire Git repo to your VM. Now you are all set to run this data engineering project on your VM.
