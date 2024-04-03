@@ -4,6 +4,6 @@
 3. Save this key to my VM
 4. Open terraform direcory, update the variables.tf file with your own information like project-id, zone, etc.
 5. Open terminal, cd to the terraform directory, then run:  
-  terraform init  
-  terraform plan  
-  terraform apply
+  $ terraform init  
+  $ terraform plan  
+  $ terraform apply
