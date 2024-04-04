@@ -11,3 +11,8 @@ What you need to do:
 6. open file io_config.yaml and update # GOOGLE inforation there:  
    GOOGLE_SERVICE_ACC_KEY_FILEPATH: "/home/src/my-creds.json" # choose the name of your copied .json key  
    GOOGLE_LOCATION: europe-north1 # choose your location  
+7. Modify pipeline crime_to_gcs, go to DATA EXPORTER and change
+   bucket_name = 'BUCKET_NAME'
+   object_key = 'FILE_NAME.parquet'
+8. Modify pipeline crime_to_bq, go to DATA LOADER and set the same bucket and object as in the point above, go to DATA EXPORTER and change table_id
+   table_id = 'TABLE_ID'
