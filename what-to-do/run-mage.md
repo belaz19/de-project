@@ -1,5 +1,5 @@
 1. in termincal navigate to the mage folder, rename file dev.env into .env  
-2. save the previosuly created json-key into the folder mage  
+2. save the previosuly created json-key into the mage folder  
 3. run $ sudo docker compose build  
 4. run $ sudo docker compose up  
 5. pass port 6789 and navigate to http://localhost:6789  
