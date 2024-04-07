@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    database: crime-data-la
+    schema: dataset_crime_la
+
+    tables:
+      - name: crime_victim
