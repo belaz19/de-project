@@ -7,3 +7,4 @@ sources:
 
     tables:
       - name: crime_victim
+      - name: unemp_rate

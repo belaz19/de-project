@@ -15,12 +15,13 @@ select
     {{ dbt.safe_cast("dr_no", api.Column.translate_type("integer")) }} as recordid,
     
     -- timestamp
-    cast(date_occ as timestamp) as crime_date,
+    cast(date_occ as date) as crime_date,
+    cast(date_trunc(date_occ, month) as date) as crime_month,
     
     -- vict info
     {{ dbt.safe_cast("vict_age", api.Column.translate_type("integer")) }} as victim_age,
     {{ dbt.safe_cast("vict_sex", api.Column.translate_type("string")) }} as victim_sex,
-    {{ get_vict_descent("vict_descent") }} as victim_descent_description,
+    {{ get_vict_descent("vict_descent") }} as victim_descent,
 
     -- crime info
     {{ dbt.safe_cast("time_occ", api.Column.translate_type("integer")) }} as crime_time,
