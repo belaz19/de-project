@@ -20,7 +20,7 @@ select
     
     -- vict info
     {{ dbt.safe_cast("vict_age", api.Column.translate_type("integer")) }} as victim_age,
-    {{ dbt.safe_cast("vict_sex", api.Column.translate_type("string")) }} as victim_sex,
+    {{ get_vict_sex("vict_sex") }} as victim_sex,
     {{ get_vict_descent("vict_descent") }} as victim_descent,
 
     -- crime info
