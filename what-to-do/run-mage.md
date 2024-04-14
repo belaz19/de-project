@@ -11,3 +11,4 @@
    object_key = 'FILE_NAME.parquet'
 8. Modify pipeline crime_to_bq, go to DATA LOADER and set the same bucket and object as in the point above, go to DATA EXPORTER and change table_id
    table_id = 'TABLE_ID'
+9. Run these 3x pipelines once
