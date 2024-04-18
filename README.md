@@ -13,19 +13,23 @@ This final transformed dataset is visualized in Looker Studio. This dasboard giv
 ![DE project flow](https://github.com/belaz19/de-project/assets/97640160/9ade635b-fc24-4ca8-b24a-f85dbd7442a6)
   
 # Cloud
-The project is developed in the Google Cloud Platform. The follwong resources are used on gcp: Virtual Machine with Linux, Buckets in cloud storage, datasets in BigQuery Studio.  
+The project is developed in the Google Cloud Platform (GCP). The follwong resources are used on GCP: Virtual Machine (VM) with Linux, Buckets in Cloud Storage, datasets in BigQuery Studio.  
 Terraform (IaC tool) is used to create (and later destroy) buckets and datasets.
 
 # Data ingestion
-Batch orchestration is implemented using MAGE running in a docker container. There are three pipelines created, each of them has multiple steps in DAG (data loader, data transformer, data exporter), all steps are orchestrated:
-  1. crime_to_gcs. This pipelines loads the Los Angeles crime data (900,000+ records) from open source, define data types for each column, rename headers, and loads everything to the Bucket on Google Cloud Storage in a parquet file.  
-  2. crime_to_bq. This pipeline dowloads the data from the data lake, does additional data transformations such as removing uncomplete rows, normalizing some columns' values, selecting the most relevant column, and uploading this data (600,000+ re) to the BigQuery dataset on Google Cloud.  
-  3. unemp_to_bq. This pipeline loads data about unemployemnt rates in Los Angeles. Then the relevant rows and columns are selected. This becomes a relatively small dataset containing up to 100 rows, so I upload it directly to the BigQuery studio.
+Batch orchestration is implemented using MAGE which I run in a docker container. There are three pipelines created, each of them has multiple steps in DAG (data loader, data transformer, data exporter), all steps are orchestrated. The pipelines:
+  1. crime_to_gcs. This pipeline loads the Los Angeles crime data (900,000+ records) from open source, define data types for each column, rename headers, and loads everything to the Bucket on Cloud Storage in a parquet file.  
+  2. crime_to_bq. This pipeline loads the data from the data lake, does additional data transformations such as removing uncomplete rows, normalizing some columns' values, selecting the most relevant column, and uploading this data (600,000+ re) to the defined BigQuery dataset.  
+  3. unemp_to_bq. This pipeline loads data about unemployemnt rates in Los Angeles. Then the relevant rows and columns are selected. This becomes a relatively small dataset (containing up to 100 rows), so I upload it directly to the BigQuery studio.
 
 # Transformations
-Transformations are defined in dbt cloud. There are two models defined in this dbt project: 1) staging model for staging the two raw input datasets that I have in BigQuery (Crime data and Unemployemnt data), and 2) core model for joining these two datasets together and getting the data ready for a dashboard. There are also some Macros created for changing values in certain column (victim descent and victim sex). After successfull testing a Production environemnt and a Deployment job has been created in dbt cloud to run the worflow whenever needed.
+Transformations are defined in dbt-cloud. There are two models defined in this dbt project: 1) the staging model for staging the raw input datasets (Crime data and Unemployemnt data from my BigQuery) and 2) the core model for joining these two datasets together and getting the data ready for a dashboard. There are also some Macros created for changing values in two column (victim descent and victim sex). After successfull testing of the models, a Production environemnt and a Deployment job has been created in dbt-cloud to trigger & run this workflow whenever needed.
 
 # Data warehouse
-BigQuery on Google Cloud Platform is used as data warehouse. As described above the data is loaded to DWH with MAGE orchestrated pipelines, then it is transformed by DBT, and the final dataset is saved as "prod" dataset. The final tables are partitioned on Date and clustered by Area. This partitioning and clustering is implemented via DBT as the last step of data transformation.
+BigQuery on Google Cloud Platform is used as a data warehouse (DWH). As described above, the MAGE orchestrated pipelines loads data into DWH, then it is transformed with dbt-cloud, and returned back to BigQuery as the final "production" dataset and table. This final table is partitioned by Date and clustered by Area. This partitioning and clustering is implemented via dbt-cloud as the last step of data transformation there.
 
 # Dashboard
+The dashboard is created in Looker Studio. My "production" table in BigQuery is the data source for this dashboard. The dashboard contains several tiles. Some of the showing distribution of categorigal data such as victims' gender, others showing data across a temporal line such as crime count vs. date.
+
+# Reproducibility
+It is possible to reproduce this project with your own machine and cloud. All the steps that has been taken for the development of this project are documented in the "what-to-do" folder. The codes used in different data engineering tools (terraform, mage, dbt) are also stored in this Git repository. You can clone this entire repo and then follow the steps described in the "what-to-do" folder.
