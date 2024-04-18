@@ -7,5 +7,6 @@
 6. Open terminal, cd to the terraform directory, and then run:  
   $ terraform init  
   $ terraform plan  
-  $ terraform apply
-  This will create a Storage bucket and a BigQuery dataset in your GCP
+  $ terraform apply  
+
+This will create a Storage bucket and a BigQuery dataset in your GCP
