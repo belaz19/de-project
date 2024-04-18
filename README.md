@@ -1,4 +1,4 @@
-# Los Angeles crimes data from 2020 to present  
+# Los Angeles crimes data  
   
 # Overview
 In this data engineering project, I develop an end-to-end data pipeline for collecting and visualizing data about crimes registered in Los Angeles since the year 2020. The dataset contains various information about the crime (such as crime type and area) and the victim (such as age and gender). I also combine this crimes' data with unemployment rates in Los Angeles, to see if there are any visuals correlations between the crimes' count and the unemployment rate.  
@@ -10,3 +10,4 @@ This final transformed dataset is visualized in Looker Studio. This dasboard giv
 This Git repository contains both, codes used by me in different data engineering tools and the instructions how this project can be replicated on your own machine (check "what-to-do" folder for details).
   
 # Technologies used
+![DE project flow](https://github.com/belaz19/de-project/assets/97640160/5cc22575-7cb9-4d17-8a60-51684ec8f5b6)
