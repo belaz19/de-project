@@ -6,10 +6,12 @@ In this data engineering project, I develop an end-to-end data pipeline for coll
 The datasets are collected (batch processing) using MAGE pipelines from open data sources belonging to the Los Angeles city and the California state. Then the datasets are processed by MAGE pipelines and put into Google Cloud Storage, and Google BigQuery data warehouse (after an additional processing). Then the data is transformed with dbt tool for data transformation, and returned as a new table into BigQuery ready for the dashboard.
   
 This final transformed dataset is visualized in Looker Studio. This dasboard gives end-users the opportunity to explore the crime data in each city's area at different time intervals, to assess how safe is he city for each people group. By looking at the dashboard and filtering the data to their needs, the users are able to see what gender and etnicity groups have became the victims, which crime types have occured the most and during what time of the day, have weapons been used, how the crime count has changed with time, and does it have any correlation with the unemployemnt rate.
-  
+
+https://lookerstudio.google.com/reporting/28814375-ee1f-4c3d-8416-5b553cb11c54/page/PEmwD  
 ![image](https://github.com/belaz19/de-project/assets/97640160/408f56eb-3c10-4f20-a512-a16a1dd3aa5b)
   
 # Project Architecture  
+https://github.com/belaz19/de-project/tree/main  
 ![DE project flow](https://github.com/belaz19/de-project/assets/97640160/9ade635b-fc24-4ca8-b24a-f85dbd7442a6)
   
 # Cloud
