@@ -1,7 +1,7 @@
 # Part 3. Run mage
 1. Navigate to the mage folder, rename file dev.env into .env  
 2. save the previosuly created json-key into that mage folder  
-3. Then run 'sudo docker compose build' 
+3. Then run `sudo docker compose build` 
 4. Then run 'sudo docker compose up'  
 5. pass port 6789 and navigate to http://localhost:6789  
 6. open file io_config.yaml and update # GOOGLE inforation there:  
